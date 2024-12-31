@@ -17,7 +17,7 @@ stop_words = set(stopwords.words('english'))
 
 # Load dataset
 data = pd.read_csv('Suicide_Detection.csv')  # Update with your dataset path
-print(data.head())
+# print(data.head())
 
 # Preprocessing function
 def preprocess_text(text):

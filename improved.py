@@ -19,10 +19,9 @@ nlp = spacy.load('en_core_web_sm')
 
 # Device configuration
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print(device)
 # Load dataset
 data = pd.read_csv('Suicide_Detection.csv')  # Update with your dataset path
-print(data.head())
+# print(data.head())
 
 # Preprocessing with SpaCy
 def preprocess_text(text):
@@ -32,7 +31,7 @@ def preprocess_text(text):
 
 # Apply preprocessing
 data['cleaned_text'] = data['Tweet'].apply(preprocess_text)
-
+print(data['cleaned_text'])
 # Encode labels
 label_encoder = LabelEncoder()
 data['Suicide'] = label_encoder.fit_transform(data['Suicide'])
@@ -74,7 +73,7 @@ model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_l
 # Optimizer and loss function
 optimizer = optim.AdamW(model.parameters(), lr=2e-5)
 criterion = nn.CrossEntropyLoss()
-
+print(model)
 # Training loop
 num_epochs = 3
 for epoch in range(num_epochs):
