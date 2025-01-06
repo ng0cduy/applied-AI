@@ -1,0 +1,10 @@
+nltk
+scikit-learn
+torch==2.0.1
+pandas
+transformers
+spacy
+seaborn
+cupy
+torchtext==0.15.2
+numpy
